@@ -1,0 +1,81 @@
+Below is a lean-startup playbook for Career Compass AI—a résumé-aware Gen-AI career-coach you can stand up in a month while collecting the skills that hiring managers flag most often in 2025.
+
+1. Gen-AI skills that appear most in job posts right now
+Rank	Skill / Tool	Why it shows up
+1	PyTorch & Hugging Face Transformers / PEFT	Framework of record for fine-tuning LLMs; LinkedIn’s 2025 AI-engineer roadmap lists them first under “core requirements.” 
+linkedin.com
+2	Vector databases (pgvector / Chroma / Pinecone)	Retrieval-augmented generation (RAG) is table-stakes; pgvector is singled out as a “top-3” choice in 2025 popularity surveys. 
+dataaspirant.com
+3	RAG orchestration frameworks (LangChain, LlamaIndex)	Speed up prototyping; almost every Gen-AI solutions-architect role mentions one of them. 
+linkedin.com
+4	FastAPI	40 % YoY adoption jump; highlighted as the go-to async Python back-end in 2025 developer surveys. 
+nucamp.co
+index.dev
+5	Next.js 14	Hundreds of active postings at $49–$100 /hr; React meta-framework of choice for hiring teams. 
+ziprecruiter.com
+reddit.com
+
+These will be the foundation of your prototype.
+
+2. Minimal, in-demand tech stack
+Layer	Pick	Why
+Front-end	Next.js 14 + Tailwind CSS	Matches market demand; Vercel free tier deploy. 
+ziprecruiter.com
+reddit.com
+Back-end API	FastAPI	Async, OpenAPI docs, first-class LangChain integration. 
+nucamp.co
+index.dev
+LLM (start)	Mistral-7B-Instruct via HF Inference Endpoints	Fully free tier for light usage; easy swap later.
+Fine-tune	QLoRA with PyTorch + PEFT on Colab T4	Keeps GPU cost $0–$10 while ticking the PyTorch box.
+RAG store	Postgres 15 + pgvector (Fly.io hobby DB)	SQL you already know + trending vector tech. 
+dataaspirant.com
+Auth & hosting	Next-Auth + Vercel (UI) / Fly.io (API)	All free tiers.
+Domain	Cloudflare Registrar — .com ≈ $10/yr, no mark-ups or renewal hikes. 
+cloudflare.com
+community.cloudflare.com
+
+3. Four-week MVP roadmap
+(~35 hours total; adjust pace as needed)
+
+Week	Objectives	Concrete Deliverables
+1 — Data & infra	Register domain (Cloudflare) and spin up free Postgres + pgvector. Ingest Kaggle “Resume Dataset” (2.4 k résumés) and embed with sentence-transformers/all-MiniLM. 
+kaggle.com
+✔ resume table with id, text, label, embedding.
+✔ GitHub repo seeded.
+2 — RAG API	Build LangChain chain: query ➜ similarity search ➜ prompt template ➜ Mistral-7B. Expose /advise endpoint in FastAPI.	curl /advise -F resume.pdf returns JSON: skills_gap, bullet_suggestions.
+3 — UI & streaming	Bootstrap Next.js chat UI. Add résumé upload & SSE streaming from FastAPI. Deploy UI on Vercel, API on Fly.io.	Live site on your new domain with secure chat.
+4 — Fine-tune & polish	Label 5 k résumés by target job family (regex on job titles). Run QLoRA fine-tune of Mistral-7B on Colab; swap endpoint. Add metrics page (latency, token cost). Publish demo video + LinkedIn post.	v1.0 “Career Compass AI” 🎉
+
+Outcome: You exit month-1 with a working Gen-AI product, public repo, and a story that hits every skill in Section 1.
+
+4. Cheap-domain tip in two clicks
+Create a free Cloudflare account → Registrar tab → “Register” → search for careercompassai.com (or similar).
+
+Price at time of writing: $10.44 / year for .com; checkout includes DNSSEC and WHOIS privacy. 
+cloudflare.com
+community.cloudflare.com
+
+Point the A-record at Vercel once your UI deploys.
+
+5. What to do after MVP
+Phase	Add-on	Skill you’ll showcase
+📈 v1.1	Skill-gap heat-map & PDF résumé rewrite (function-calling)	LangChain tool calling + prompt engineering
+🤖 v1.2	Daily scrape of Hacker News / LinkedIn job posts into pgvector	ETL + cron + data-ops
+⚙️ v1.3	Dockerise, CI/CD with GitHub Actions, auto-deploy to Fly	DevOps-&-MLOps credibility
+📊 v1.4	Analytics dashboard (Next.js server actions + Chart.js)	Full-stack data-viz
+
+Why this specific plan works
+Matches hiring signals – every component (PyTorch, pgvector, RAG, FastAPI, Next.js) is cited in 2025 job ads. 
+linkedin.com
+dataaspirant.com
+nucamp.co
+ziprecruiter.com
+linkedin.com
+
+Low cost – entire stack runs on free tiers (+ $10 domain).
+
+Fast learning loop – one-month sprint gives you a live product quickly; each later version deepens a different hot skill.
+
+Portfolio proof – “I built, fine-tuned, and deployed a career-coach LLM from scratch” is gold in Gen-AI interviews.
+
+Spin up that Postgres instance and grab your domain tonight—you can have Week-1 checked off in a single weekend. Send over your repo link any time for code-review feedback, and we’ll iterate together!

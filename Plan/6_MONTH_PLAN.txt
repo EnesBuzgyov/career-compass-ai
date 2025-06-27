@@ -1,0 +1,159 @@
+6-Month Road-map (June → December 2025)
+📅 Month 1 (Weeks 1-4) — Skill Gap Sprint & Brand Refresh
+Week	Focus	Concrete Deliverables
+1	Career target clarity	Pick top two tracks: ① Gen-AI/MLOps Engineer, ② Gen-AI Solutions Architect. Update LinkedIn headline to “Software Engineer
+2-3	Deep-dive courses	Finish DeepLearning.ai “Building Systems with GenAI” & LangChain “RAG Bootcamp.” Emphasise vector DB, agents, evaluation (links in portfolio). These align with the top skills appearing in 2025 AI-engineer postings: data pipelines & vector search 
+365datascience.com
+.
+4	Micro-credential	Sit Google Cloud’s “Generative AI Engineer” exam (free retake vouchers still available). Adds credibility for architect roles; many listings ask for GCP-GenAI cert 
+linkedin.com
+.
+
+📅 Months 2-3 (Weeks 5-12) — Flagship Portfolio Project
+Project: “RetailGPT-FinOps” — open-source pipeline that fine-tunes a small model on pseudo-anonymised Walmart-style ledger data and exposes a RAG endpoint + dashboard.
+
+Why this project?
+Directly bridges your finance-data domain and Gen-AI engineering.
+
+Component	Stack (free/low-cost)	Reasoning
+Model	Phi-3-mini (3.8 B) via Azure AI Studio † or Mistral-7B on Hugging Face (Apache-2.0) 
+news.microsoft.com
+mistral.ai
+Small-language models you can fine-tune on a single GPU or Colab T4.
+Fine-tuning	QLoRA + Hugging Face PEFT. Colab/Kaggle (30 h/week free GPU) 
+medium.com
+kaggle.com
+Keeps cost $0-$10.
+RAG back-end	LangChain + Postgres/pgvector (free on Fly.io) or ChromaDB	Matches growing demand for vector DB know-how.
+API / App	FastAPI + Next.js UI on Replit (always-on)	Demonstrates full-stack delivery + DX.
+DevOps	GitHub Actions → Hugging Face Spaces or Fly.io CI/CD	Mirrors production ML-Ops workflow.
+
+†Azure still offers free Phi-3 fine-tune credits 
+learn.microsoft.com
+.
+
+Milestones
+
+Week	Deliverable
+5-6	Data generator script (creates 1 M synthetic ledger lines) + EDA notebook.
+7-8	Fine-tuned model (quantised) achieving ≤ 5 % hallucination on validation set. Publish to Hugging Face.
+9	RAG API & Streamlit/Next.js dashboard with auth.
+10	GitHub README incl. architecture diagram & demo GIF.
+11-12	Write Medium article & LinkedIn post dissecting lessons; share on Hugging Face Discord for feedback.
+
+📅 Month 4 (Weeks 13-16) — Network & Market Validation
+Referrals: Reach out to Walmart alumni now at Google, Microsoft, Anthropic, Databricks. Ask for 30-min chats showcasing RetailGPT-FinOps demo.
+
+Open-source contribution: Triage issues or PRs on LangChain or pgvector. Maintainer merges → resume bullet.
+
+Meetups / CFPs: Submit talk to MLOps World Virtual (November) on “Fine-tuning SLMs for Finance Data Under $10.”
+
+📅 Month 5 (Weeks 17-20) — Targeted Applications & Interview Prep
+Companies:
+
+Gen-AI Engineer / AI Infra: OpenAI, Cohere, Anthropic, Databricks, Snowflake.
+
+Gen-AI Solutions Architect / Cloud SA: Google Cloud AI, AWS GenAI Specialist SA, Microsoft CSA-AI, NVIDIA AI Enterprise.
+
+AI/MLOps in finance: Point72, DE Shaw, Balyasny — hedge funds dangling $200-400 k packages for AI talent 
+fnlondon.com
+.
+
+Prep routine (4 hrs/week)
+
+LeetCode medium+; system-design prompts focused on vector DB + RAG scaling.
+
+“Explain your project” mock panels (record on Zoom, iterate).
+
+Behavioral STAR stories highlighting: ✅ multi-region BigQuery rollout, ✅ canary deployments, ✅ financial accuracy impact.
+
+📅 Month 6 (Weeks 21-24) — On-Site / Offer Phase
+Keep interview slate tight (max 4-5 companies) to optimise prep & negotiation power.
+
+Use Levels.fyi + Glassdoor data (AI-solutions eng $178-199 k median) to anchor offers 
+glassdoor.com
+glassdoor.com
+.
+
+If Gen-AI role offer lags, pursue Solution-Architect jobs with explicit Gen-AI charter — recent Google Cloud and Microsoft postings show dozens weekly 
+linkedin.com
+linkedin.com
+.
+
+Continuous Habits (all 6 months)
+2 hrs/week reading IEEE Spectrum, Google DeepMind blog, OpenAI index to keep up with model releases — necessary as frameworks refresh every 6-9 months 
+linkedin.com
+.
+
+GitHub green streak — even small docs PRs keep profile active.
+
+Public learning — post bite-size LinkedIn updates (“Day 12 of fine-tuning an SLM”) to grow network and demonstrate expertise.
+
+Mentorship circle — join Slack/Discord communities: MLOps-Community, Hugging Face, Latent Space.
+
+Why this plan works
+Goal-aligned: Builds hands-on Gen-AI depth and cloud-architect breadth, matching what 2025 employers list in AI-heavy job posts.
+
+Cost-aware: Leverages free fine-tune credits, Colab/Kaggle GPUs, Apache-licensed models — proving you can innovate without a FAANG-scale budget.
+
+Signal-rich: A polished, domain-relevant project + GCP Gen-AI cert + OSS contributions create distinct, verifiable proofs beyond your Walmart work.
+
+Network-amplified: Referral-driven applications boast 4× callback rates vs. cold applies (LinkedIn Talent stats).
+
+Follow the timeline, track progress weekly, and you’ll enter Q4 2025 with a portfolio and network tailored to land either a Generative-AI engineer/MLOps position or a Gen-AI solutions architect role at a major tech player. Good luck — and let me know whenever you need a checkpoint or deeper prep on any stage!
+
+
+Sources
+
+
+
+
+
+
+
+
+
+
+
+Sources
+You said:
+how long is deeplearning.ai
+
+
+ChatGPT said:
+
+Thought for 28 seconds
+“DeepLearning .ai” isn’t a single course—it’s Andrew Ng’s training company.
+Each program has its own run-time, ranging from 90-minute micro-courses to multi-month specializations:
+
+Program	# Courses	Platform tag	Time commitment shown on the official page*
+Building Systems with the ChatGPT API	1 (short course)	DeepLearning.ai site	1 hr 45 min total 
+deeplearning.ai
+Prompt Engineering for Developers (similar length)	1	DeepLearning.ai	≈ 1 hour
+Generative AI with LLMs (w/ AWS)	single course	Coursera	“1 week at ≈ 10 hrs” (≈ 10 h total) 
+coursera.org
+Machine Learning Specialization	3	Coursera	Coursera lists “2 weeks per course at ≈ 10 hrs/week” → ~ 6 weeks / 30 h total if you follow that pace 
+coursera.org
+Deep Learning Specialization	5	DeepLearning.ai/Coursera	Site states “> 2–6 months” (5 courses, ~10 h / wk) 
+deeplearning.ai
+
+*All of these are self-paced. If you study less (or more) than the suggested hours per week, the calendar length stretches (or shrinks) accordingly.
+
+What this means for you
+Quick skills boost (under 2 hours):
+
+Building Systems with the ChatGPT API → perfect first step toward the Gen-AI engineer track we mapped out.
+
+Weekend sprint (≈ 10 hours):
+
+Generative AI with LLMs gives a structured, lab-based primer you can finish in a week of evenings.
+
+Foundational refresh (4–6 weeks):
+
+Machine Learning Specialization—good if you want a modern ML survey but don’t need deep math right now.
+
+Deep dive (up to 6 months):
+
+Deep Learning Specialization—the classic path if you want hands-on neural-net depth; treat it as a part-time semester.
+
+Use these estimates to slot the right courses into the 6-month career plan we outlined. If your goal is to start shipping Gen-AI demos within a month, begin with the 90-minute and 10-hour courses, then layer the longer specializations once you’ve launched your portfolio project.
