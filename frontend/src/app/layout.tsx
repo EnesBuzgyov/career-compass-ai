@@ -1,26 +1,35 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
+import type { Metadata } from "next";
+import localFont from "next/font/local";
+import "./globals.css";
 
-const inter = Inter({ subsets: ['latin'] })
+const geistSans = localFont({
+  src: "./fonts/GeistVF.woff",
+  variable: "--font-geist-sans",
+  weight: "100 900",
+});
+const geistMono = localFont({
+  src: "./fonts/GeistMonoVF.woff",
+  variable: "--font-geist-mono",
+  weight: "100 900",
+});
 
 export const metadata: Metadata = {
-  title: 'Career Compass AI',
-  description: 'A résumé-aware Gen-AI career-coach',
-}
+  title: "Career Compass AI",
+  description: "Your résumé-aware Gen-AI career coach - Get personalized career advice, resume feedback, and skill recommendations",
+};
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode
-}) {
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
-          {children}
-        </div>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        {children}
       </body>
     </html>
-  )
+  );
 }
