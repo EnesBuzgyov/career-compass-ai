@@ -13,11 +13,6 @@ from dotenv import load_dotenv
 dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
 load_dotenv(dotenv_path=dotenv_path)
 
-# --- DEBUG: Print all loaded environment variables ---
-import pprint
-pprint.pprint(dict(os.environ))
-# --- END DEBUG ---
-
 def setup_pgvector():
     """Enable pgvector extension and create initial tables"""
     try:
@@ -32,16 +27,19 @@ def setup_pgvector():
         cursor.execute("CREATE EXTENSION IF NOT EXISTS vector;")
         print("✅ Enabled pgvector extension")
         
+        # Drop the table if it exists to ensure a clean slate with the correct schema.
+        # CASCADE will also remove any dependent objects like indexes.
+        cursor.execute("DROP TABLE IF EXISTS resumes CASCADE;")
+        print("🧹 Dropped existing resumes table (if any) for a fresh start.")
+
         # Create resumes table with vector embeddings
+        # This schema is simplified to match exactly what is in our Kaggle dataset and load script.
+        # We can add more columns like skills, experience, etc., later as we build more features.
         create_table_sql = """
         CREATE TABLE IF NOT EXISTS resumes (
             id SERIAL PRIMARY KEY,
-            text TEXT NOT NULL,
-            label VARCHAR(255),
-            job_title VARCHAR(255),
-            skills TEXT[],
-            experience_years INTEGER,
-            education_level VARCHAR(100),
+            category VARCHAR(255) NOT NULL,
+            resume_text TEXT NOT NULL,
             embedding vector(384),  -- sentence-transformers/all-MiniLM-L6-v2 produces 384-dim vectors
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
